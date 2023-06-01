@@ -51,18 +51,47 @@
 
 
 // GETELEMENTBYTAGNAME //
-var li = document.getElementsByTagName('li');
-console.log(li);
-// console.log(li[1]);
-// li[1].textContent = "Hello 2";
-// li[1].style.fontWeight = "bold";
-// li[1].style.color = "green";
-// li[1].style.backgroundColor = "yellow";
+// var li = document.getElementsByTagName('li');
+// console.log(li);
+// // console.log(li[1]);
+// // li[1].textContent = "Hello 2";
+// // li[1].style.fontWeight = "bold";
+// // li[1].style.color = "green";
+// // li[1].style.backgroundColor = "yellow";
 
-// for(var i=0; i<li.length; i++){
-//     li[i].style.backgroundColor = "#f4f4f4";
-// }
-li[4].style.color = "red";
-var item5 = document.getElementsByClassName('item5');
-console.log(item5);
-item5[0].style.fontWeight = "bold";
+// // for(var i=0; i<li.length; i++){
+// //     li[i].style.backgroundColor = "#f4f4f4";
+// // }
+// li[4].style.color = "red";
+// var item5 = document.getElementsByClassName('item5');
+// console.log(item5);
+// item5[0].style.fontWeight = "bold";
+
+
+ // QUERYSELECTOR //
+      
+ var item = document.querySelector(".list-group-item:nth-child(2)");
+ item.style.color = "green"
+ 
+ // var item = document.querySelector(".list-group-item:nth-child(3)");
+ // item.style.visibility  = "hidden" 
+
+ //----- or -----//
+
+ var item = document.querySelector(".list-group-item:nth-child(3)");
+ item.style.display  = "none" 
+
+ //-----or------//
+ // var item = document.querySelector(".list-group-item:nth-child(3)");
+ // item.textContent  = "" 
+
+
+ // QUERSELECTORALL //
+ 
+ var item2 = document.querySelectorAll("li");
+ item2[1].style.color = "green";
+
+ var odd = document.querySelectorAll('li:nth-child(odd)');
+ for(var i=0; i < odd.length; i++){
+   odd[i].style.backgroundColor = 'green'
+ }
