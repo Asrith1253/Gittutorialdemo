@@ -145,7 +145,17 @@
                 li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
 
                 //------ Two input Values stores in Local-Storage---- 
-                localStorage.setItem(nameInput.value, emailInput.value)
+                // localStorage.setItem(nameInput.value, emailInput.value);
+
+
+                //--------Stores in Object-------
+                let myObj = {name : nameInput.value , email : emailInput.value };
+                let myObj_seralized = JSON.stringify(myObj);
+                localStorage.setItem("myObj", myObj_seralized)
+                let myObj_deseralized = JSON.parse(localStorage.getItem("myObj"))
+                console.log(myObj_deseralized)
+
+                
                 userList.appendChild(li);
 
                 nameInput.value = "";
