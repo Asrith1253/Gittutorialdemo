@@ -17,10 +17,14 @@ function onSubmit(e) {
     } else {
 
         const li = document.createElement('li');
-        li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value}`));
+        var string = li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value} `));
+
+
+
 
         //------ Two input Values stores in Local-Storage---- 
-        localStorage.setItem(nameInput.value, emailInput.value)
+        // localStorage.setItem(nameInput.value, emailInput.value);
+
 
         //--------Stores in Object-------
         // let myObj = {name : nameInput.value , email : emailInput.value };
@@ -46,15 +50,41 @@ function onSubmit(e) {
             localStorage.setItem(name, JSON.stringify(existing));
 
         };
-        addToLocalStorageObject(nameInput.value, nameInput.value, emailInput.value);
+        let name = nameInput.value;
+        let key = nameInput.value;
+        let value = emailInput.value;
+        addToLocalStorageObject(name, key, value);
+
+
+        // var removeItem = function (key){
+
+        //     var existing = localStorage.getItem(name);
+        //     existing = existing ? JSON.parse(existing) : {};
+        //     delete existing[key]
+        //     localStorage.setItem(name, JSON.stringify(existing));
+        // }
+        // removeItem(nameInput.value)
+
+        var delbutton = document.createElement('button');
+        delbutton.appendChild(document.createTextNode('Delete'));
+        delbutton.className = 'list-item';
+
+        li.appendChild(delbutton);
+
+        userList.addEventListener('click', removeItem);
 
         userList.appendChild(li);
 
         nameInput.value = "";
         emailInput.value = "";
 
-
-
+    }
+    function removeItem(e) {
+        if (e.target.classList.contains('list-item')) {
+            var li = e.target.parentElement;
+            var rem = userList.removeChild(li);
+            localStorage.clear();
+        }
     }
 
 }
