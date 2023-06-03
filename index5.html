@@ -142,8 +142,9 @@
             } else {
 
                 const li = document.createElement('li');
+                
                 var string = li.appendChild(document.createTextNode(`${nameInput.value} : ${emailInput.value} `));
-
+        
 
 
 
@@ -193,24 +194,42 @@
                 var delbutton = document.createElement('button');
                 delbutton.appendChild(document.createTextNode('Delete'));
                 delbutton.className = 'list-item';
-
                 li.appendChild(delbutton);
+                    
+                var editButton = document.createElement('button');
+                editButton.appendChild(document.createTextNode('Edit'));
+                editButton.className = 'list-edit-item';
+                li.appendChild(editButton);
+
 
                 userList.addEventListener('click', removeItem);
+                userList.addEventListener('click', removeItem1);
+                
 
                 userList.appendChild(li);
 
-                nameInput.value = "";
-                emailInput.value = "";
+               
 
             }
             function removeItem(e) {
                 if (e.target.classList.contains('list-item')) {
                     var li = e.target.parentElement;
-                    var rem = userList.removeChild(li);
+                    userList.removeChild(li);
                     localStorage.clear();
+
                 }
             }
+            function removeItem1(e){
+                if(e.target.classList.contains('list-edit-item')){
+                    let nameInput = document.getElementById('name');
+                    var li = e.target.parentElement;
+                    console.log(delbutton.parentElement)
+                    userList.removeChild(li);
+                    localStorage.clear();
+
+                }
+            }
+
 
         }
     </script>
